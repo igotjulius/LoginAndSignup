@@ -207,6 +207,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Name = "Books";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Books";
             this.Load += new System.EventHandler(this.Books_Load);
             this.groupBox1.ResumeLayout(false);
