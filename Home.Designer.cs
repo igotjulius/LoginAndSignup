@@ -34,6 +34,7 @@
             this.booksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transactionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             this.reportsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(601, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(309, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -54,9 +55,11 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.borrowerToolStripMenuItem,
             this.booksToolStripMenuItem});
+            this.fileToolStripMenuItem.Margin = new System.Windows.Forms.Padding(45, 0, 0, 0);
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
             // borrowerToolStripMenuItem
             // 
@@ -73,21 +76,37 @@
             // 
             // transactionsToolStripMenuItem
             // 
+            this.transactionsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
             this.transactionsToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.transactionsToolStripMenuItem.Text = "Transactions";
+            this.transactionsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             // 
             // reportsToolStripMenuItem
             // 
+            this.reportsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MingLiU-ExtB", 26F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(39, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(224, 35);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "THE LIBRARY";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 370);
+            this.ClientSize = new System.Drawing.Size(309, 127);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Home";
@@ -107,5 +126,6 @@
         private System.Windows.Forms.ToolStripMenuItem booksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transactionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }
