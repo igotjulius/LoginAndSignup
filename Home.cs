@@ -22,5 +22,22 @@ namespace LoginAndSignup
             Books b = new Books();
             b.ShowDialog();
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void borrowerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Borrowers br = new Borrowers();
+            br.ShowDialog();
+        }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Transaction ts = new Transaction();
+            ts.ShowDialog();
+        }
     }
 }

@@ -2,40 +2,35 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LoginAndSignup
 {
-    public partial class Books : Form
+    public partial class Borrowers : Form
     {
         SqlCommand cmd;
         SqlConnection cn;
         SqlDataReader dr;
 
-        public Books()
+        public Borrowers()
         {
             InitializeComponent();
         }
 
-        private void Books_Load(object sender, EventArgs e)
+        private void Borrowers_Load(object sender, EventArgs e)
         {
             cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Downloads\LoginAndSignup_new\LoginAndSignup\Database1.mdf;Integrated Security=True");
             cn.Open();
         }
-
         private void loadDataGrid()
         {
-            cmd = new SqlCommand("Select * from BooksTable order by Id asc", cn);
-            dr = cmd.ExecuteReader();
-            dr.Close();
+            cmd = new SqlCommand("Select * from BorrowersTable order by Id asc", cn);
+            cmd.ExecuteNonQuery();
 
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
             DataTable tab = new DataTable();
@@ -48,40 +43,37 @@ namespace LoginAndSignup
 
         private void searchtxtbox_TextChanged(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("Select * from BooksTable where title like'%" + searchtxtbox.Text + "%'", cn);
+            cmd = new SqlCommand("Select * from BorrowersTable where Firstname like'%" + searchtxtbox.Text + "%'", cn);
             cmd.ExecuteNonQuery();
-            
 
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
             DataTable tab = new DataTable();
 
             adap.Fill(tab);
             dataGridView1.DataSource = tab;
-            
+
         }
 
         private void addbtn_Click(object sender, EventArgs e)
         {
-            if (authortxtbox.Text != string.Empty || titletxtbox.Text != string.Empty || quantitytxtbox.Text != string.Empty) 
+            if (lnametxtbox.Text != string.Empty || fnametxtbox.Text != string.Empty)
             {
-                cmd = new SqlCommand("select * from BooksTable where Title='" + titletxtbox.Text + "' AND Author='" + authortxtbox.Text + "'", cn);
+                cmd = new SqlCommand("select * from BorrowersTable where Firstname='" + fnametxtbox.Text + "' AND Lastname='" + lnametxtbox.Text + "'", cn);
                 dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     dr.Close();
-                    MessageBox.Show("Book is already in the library. Try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Borrower details are already in the library. Try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    int quan;
-                    quan = int.Parse(quantitytxtbox.Text);
+                    
                     dr.Close();
-                    cmd = new SqlCommand("insert into BooksTable values(@title,@author,@quantity)", cn);
-                    cmd.Parameters.AddWithValue("title", titletxtbox.Text);
-                    cmd.Parameters.AddWithValue("author", authortxtbox.Text);
-                    cmd.Parameters.AddWithValue("quantity", quan);
+                    cmd = new SqlCommand("insert into BorrowersTable values(@Firstname,@Lastname)", cn);
+                    cmd.Parameters.AddWithValue("Firstname", fnametxtbox.Text);
+                    cmd.Parameters.AddWithValue("Lastname", lnametxtbox.Text);
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Book is added in the Library.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Borrower is added in the Library.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadDataGrid();
                 }
             }
@@ -93,12 +85,12 @@ namespace LoginAndSignup
 
         private void updatebtn_Click(object sender, EventArgs e)
         {
-            if (authortxtbox.Text != string.Empty || titletxtbox.Text != string.Empty)
+            if (lnametxtbox.Text != string.Empty || fnametxtbox.Text != string.Empty)
             {
                 int num;
                 num = int.Parse(idtxtbox.Text);
 
-                cmd = new SqlCommand("Update BooksTable SET title= '" + titletxtbox.Text + "', author='" + authortxtbox.Text + "' where Id= '" + num + "'", cn);
+                cmd = new SqlCommand("Update BorrowersTable SET Firstname= '" + fnametxtbox.Text + "', Lastname='" + lnametxtbox.Text + "' where Id= '" + num + "'", cn);
                 dr = cmd.ExecuteReader();
 
                 MessageBox.Show("Successfully Updated!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -115,13 +107,13 @@ namespace LoginAndSignup
 
         private void deletebtn_Click(object sender, EventArgs e)
         {
-            if (authortxtbox.Text != string.Empty || titletxtbox.Text != string.Empty)
+            if (lnametxtbox.Text != string.Empty || fnametxtbox.Text != string.Empty)
             {
                 string num = idtxtbox.Text;
                 DialogResult drs = MessageBox.Show("Are you sure you want to delete this?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (drs == DialogResult.Yes)
                 {
-                    cmd = new SqlCommand("Delete from BooksTable where ID= '" + num + "'", cn);
+                    cmd = new SqlCommand("Delete from BorrowersTable where ID= '" + num + "'", cn);
                     dr = cmd.ExecuteReader();
 
                     MessageBox.Show("Successfully Deleted!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -143,17 +135,15 @@ namespace LoginAndSignup
         private void EmptyTextBox()
         {
             idtxtbox.Text = "";
-            titletxtbox.Text = "";
-            authortxtbox.Text = "";
-            quantitytxtbox.Text = "";
+            fnametxtbox.Text = "";
+            lnametxtbox.Text = "";
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             idtxtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Id"].Value.ToString();
-            titletxtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Title"].Value.ToString();
-            authortxtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Author"].Value.ToString();
-            quantitytxtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
+            fnametxtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Firstname"].Value.ToString();
+            lnametxtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["Lastname"].Value.ToString();
         }
 
         private void clearbtn_Click(object sender, EventArgs e)
@@ -162,3 +152,4 @@ namespace LoginAndSignup
         }
     }
 }
+

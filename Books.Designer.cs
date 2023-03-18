@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.idtxtbox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.clearbtn = new System.Windows.Forms.Button();
             this.deletebtn = new System.Windows.Forms.Button();
             this.updatebtn = new System.Windows.Forms.Button();
@@ -41,8 +43,8 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.searchtxtbox = new System.Windows.Forms.TextBox();
-            this.idtxtbox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.quantitytxtbox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -50,6 +52,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.quantitytxtbox);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.idtxtbox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.clearbtn);
@@ -62,14 +66,31 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(23, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(452, 184);
+            this.groupBox1.Size = new System.Drawing.Size(452, 222);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book Details";
             // 
+            // idtxtbox
+            // 
+            this.idtxtbox.Location = new System.Drawing.Point(70, 31);
+            this.idtxtbox.Name = "idtxtbox";
+            this.idtxtbox.ReadOnly = true;
+            this.idtxtbox.Size = new System.Drawing.Size(367, 20);
+            this.idtxtbox.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(16, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Book ID";
+            // 
             // clearbtn
             // 
-            this.clearbtn.Location = new System.Drawing.Point(19, 146);
+            this.clearbtn.Location = new System.Drawing.Point(19, 184);
             this.clearbtn.Name = "clearbtn";
             this.clearbtn.Size = new System.Drawing.Size(75, 23);
             this.clearbtn.TabIndex = 7;
@@ -79,7 +100,7 @@
             // 
             // deletebtn
             // 
-            this.deletebtn.Location = new System.Drawing.Point(362, 146);
+            this.deletebtn.Location = new System.Drawing.Point(362, 184);
             this.deletebtn.Name = "deletebtn";
             this.deletebtn.Size = new System.Drawing.Size(75, 23);
             this.deletebtn.TabIndex = 6;
@@ -89,7 +110,7 @@
             // 
             // updatebtn
             // 
-            this.updatebtn.Location = new System.Drawing.Point(281, 146);
+            this.updatebtn.Location = new System.Drawing.Point(281, 184);
             this.updatebtn.Name = "updatebtn";
             this.updatebtn.Size = new System.Drawing.Size(75, 23);
             this.updatebtn.TabIndex = 5;
@@ -99,7 +120,7 @@
             // 
             // addbtn
             // 
-            this.addbtn.Location = new System.Drawing.Point(200, 146);
+            this.addbtn.Location = new System.Drawing.Point(200, 184);
             this.addbtn.Name = "addbtn";
             this.addbtn.Size = new System.Drawing.Size(75, 23);
             this.addbtn.TabIndex = 4;
@@ -153,7 +174,7 @@
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Controls.Add(this.searchtxtbox);
-            this.groupBox2.Location = new System.Drawing.Point(23, 250);
+            this.groupBox2.Location = new System.Drawing.Point(23, 282);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(452, 217);
             this.groupBox2.TabIndex = 2;
@@ -181,28 +202,27 @@
             this.searchtxtbox.TabIndex = 0;
             this.searchtxtbox.TextChanged += new System.EventHandler(this.searchtxtbox_TextChanged);
             // 
-            // idtxtbox
+            // label5
             // 
-            this.idtxtbox.Location = new System.Drawing.Point(70, 31);
-            this.idtxtbox.Name = "idtxtbox";
-            this.idtxtbox.ReadOnly = true;
-            this.idtxtbox.Size = new System.Drawing.Size(367, 20);
-            this.idtxtbox.TabIndex = 9;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Quantity";
             // 
-            // label4
+            // quantitytxtbox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 33);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Book ID";
+            this.quantitytxtbox.Location = new System.Drawing.Point(70, 145);
+            this.quantitytxtbox.Name = "quantitytxtbox";
+            this.quantitytxtbox.Size = new System.Drawing.Size(50, 20);
+            this.quantitytxtbox.TabIndex = 4;
             // 
             // Books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 485);
+            this.ClientSize = new System.Drawing.Size(507, 523);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
@@ -237,5 +257,7 @@
         private System.Windows.Forms.TextBox searchtxtbox;
         private System.Windows.Forms.TextBox idtxtbox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox quantitytxtbox;
     }
 }

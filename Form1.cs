@@ -66,7 +66,7 @@ namespace LoginAndSignup
                 else
                 {
                     dr.Close();
-                    MessageBox.Show("No Account avilable with this username and password ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Account Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -86,6 +86,12 @@ namespace LoginAndSignup
             {
                 txtpassword.UseSystemPasswordChar= true;
             }
+        }
+
+        private void fpass_text_Click(object sender, EventArgs e)
+        {
+            ForgotPassword fp = new ForgotPassword();
+            fp.ShowDialog();
         }
     }
 }

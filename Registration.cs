@@ -54,7 +54,7 @@ namespace LoginAndSignup
                     if (dr.Read())
                     {
                         dr.Close();
-                        MessageBox.Show("Username Already exist please try another ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Username already exist please try another", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
