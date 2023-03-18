@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.quantitytxtbox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.idtxtbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.clearbtn = new System.Windows.Forms.Button();
@@ -43,8 +45,6 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.searchtxtbox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.quantitytxtbox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,6 +70,22 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book Details";
+            // 
+            // quantitytxtbox
+            // 
+            this.quantitytxtbox.Location = new System.Drawing.Point(70, 145);
+            this.quantitytxtbox.Name = "quantitytxtbox";
+            this.quantitytxtbox.Size = new System.Drawing.Size(50, 20);
+            this.quantitytxtbox.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(16, 145);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Quantity";
             // 
             // idtxtbox
             // 
@@ -201,22 +217,6 @@
             this.searchtxtbox.Size = new System.Drawing.Size(418, 20);
             this.searchtxtbox.TabIndex = 0;
             this.searchtxtbox.TextChanged += new System.EventHandler(this.searchtxtbox_TextChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 145);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Quantity";
-            // 
-            // quantitytxtbox
-            // 
-            this.quantitytxtbox.Location = new System.Drawing.Point(70, 145);
-            this.quantitytxtbox.Name = "quantitytxtbox";
-            this.quantitytxtbox.Size = new System.Drawing.Size(50, 20);
-            this.quantitytxtbox.TabIndex = 4;
             // 
             // Books
             // 

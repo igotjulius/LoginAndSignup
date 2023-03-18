@@ -114,6 +114,10 @@ namespace LoginAndSignup
                 int temp, num;
                 temp = int.Parse(qty_tb.Text);
                 num = int.Parse(bookID_tb.Text);
+                string title = title_tb.Text;
+                DateTime dt = DateTime.Now;
+                string sqlFormattedDate = dt.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                string b = "BORROWED";
 
                 temp--;
                 cmd = new SqlCommand("Update BooksTable SET quantity= '" + temp + "' where Id= '" + num + "'", cn);
@@ -123,6 +127,18 @@ namespace LoginAndSignup
                 MessageBox.Show("Book BORROWED Successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadDataGrid();
                 clearbooks();
+
+                cmd = new SqlCommand("insert into ReportsTable values(@status,@date,@firstname,@lastname,@bookID,@Title)", cn);
+                cmd.Parameters.AddWithValue("status", b);
+                cmd.Parameters.AddWithValue("date", sqlFormattedDate);
+                cmd.Parameters.AddWithValue("firstname", fname_tb.Text);
+                cmd.Parameters.AddWithValue("lastname", lname_tb.Text);
+                cmd.Parameters.AddWithValue("bookId", num);
+                cmd.Parameters.AddWithValue("Title", title);
+                dr = cmd.ExecuteReader();
+                dr.Close();
+
+
             }
             else
             {
@@ -138,6 +154,10 @@ namespace LoginAndSignup
                 int temp, num;
                 temp = int.Parse(qty_tb.Text);
                 num = int.Parse(bookID_tb.Text);
+                DateTime dt = DateTime.Now;
+                string sqlFormattedDate = dt.ToString("yyyy-MMMM-dd HH:mm:ss.fff");
+                string r = "RETURNED";
+                string title = title_tb.Text;
 
                 temp++;
                 cmd = new SqlCommand("Update BooksTable SET quantity= '" + temp + "' where Id= '" + num + "'", cn);
@@ -147,6 +167,16 @@ namespace LoginAndSignup
                 MessageBox.Show("Book RETURNED Successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 loadDataGrid();
                 clearbooks();
+
+                cmd = new SqlCommand("insert into ReportsTable values(@status,@date,@firstname,@lastname,@bookID,@Title)", cn);
+                cmd.Parameters.AddWithValue("status", r);
+                cmd.Parameters.AddWithValue("date", sqlFormattedDate);
+                cmd.Parameters.AddWithValue("firstname", fname_tb.Text);
+                cmd.Parameters.AddWithValue("lastname", lname_tb.Text);
+                cmd.Parameters.AddWithValue("bookId", num);
+                cmd.Parameters.AddWithValue("Title", title);
+                dr = cmd.ExecuteReader();
+                dr.Close();
             }
             else
             {

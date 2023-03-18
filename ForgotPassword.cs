@@ -41,6 +41,10 @@ namespace LoginAndSignup
             {
                 encrypt_tb.Text = dr.GetValue(0).ToString();
             }
+            else
+            {
+                MessageBox.Show("Username not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             dr.Close();
         }
 

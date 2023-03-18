@@ -39,5 +39,11 @@ namespace LoginAndSignup
             Transaction ts = new Transaction();
             ts.ShowDialog();
         }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reports rep = new Reports();
+            rep.ShowDialog();
+        }
     }
 }

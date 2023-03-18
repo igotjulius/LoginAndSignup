@@ -64,7 +64,7 @@
             // borrowerToolStripMenuItem
             // 
             this.borrowerToolStripMenuItem.Name = "borrowerToolStripMenuItem";
-            this.borrowerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrowerToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.borrowerToolStripMenuItem.Text = "Borrower";
             this.borrowerToolStripMenuItem.Click += new System.EventHandler(this.borrowerToolStripMenuItem_Click);
             // 
@@ -91,6 +91,7 @@
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.reportsToolStripMenuItem.Text = "Reports";
             this.reportsToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // label1
             // 
