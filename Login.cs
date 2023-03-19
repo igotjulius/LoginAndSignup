@@ -13,7 +13,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LoginAndSignup
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         SqlCommand cmd;
         SqlConnection cn;
@@ -21,7 +21,7 @@ namespace LoginAndSignup
         String decrypted;
         string hash = "f0xle@rn";//Create a hash key
 
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }

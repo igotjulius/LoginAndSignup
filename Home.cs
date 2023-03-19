@@ -19,21 +19,9 @@ namespace LoginAndSignup
 
         private void booksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Books b = new Books();
+            File b = new File();
             b.ShowDialog();
         }
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void borrowerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Borrowers br = new Borrowers();
-            br.ShowDialog();
-        }
-
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Transaction ts = new Transaction();
@@ -44,6 +32,27 @@ namespace LoginAndSignup
         {
             Reports rep = new Reports();
             rep.ShowDialog();
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            File f = new File();
+            f.ShowDialog();
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult drs = MessageBox.Show("Are you sure you want to sign out?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (drs == DialogResult.Yes)
+            {
+                this.Hide();
+                Login log = new Login();
+                log.ShowDialog();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

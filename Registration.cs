@@ -39,7 +39,7 @@ namespace LoginAndSignup
         private void Button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 login = new Form1();
+            Login login = new Login();
             login.ShowDialog();
         }
 
@@ -77,7 +77,7 @@ namespace LoginAndSignup
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Your Account is created . Please login now.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Hide();
-                        Form1 form1 = new Form1();
+                        Login form1 = new Login();
                         form1.ShowDialog();
                     }
                 }
