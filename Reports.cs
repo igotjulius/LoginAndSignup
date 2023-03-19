@@ -33,7 +33,7 @@ namespace LoginAndSignup
         private void loadDataGrid()
         {
             cn.Open();
-            cmd = new SqlCommand("Select * from ReportsTable order by ReportID asc", cn);
+            cmd = new SqlCommand("Select * from ReportsTable order by Date desc", cn);
             cmd.ExecuteNonQuery();
 
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
@@ -106,13 +106,13 @@ namespace LoginAndSignup
                     {
 
                         height += dataGridView1.Rows[0].Height;
-                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[0].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(60, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
-                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[1].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(140, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
-                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[2].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(240, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
-                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[3].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(370, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
-                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[4].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(500, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
-                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[5].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(600, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
-                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[6].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 8), Brushes.Black, new RectangleF(680, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
+                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[0].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(60, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
+                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[1].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(140, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
+                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[2].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(240, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
+                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[3].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(370, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
+                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[4].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(500, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
+                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[5].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(620, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
+                        e.Graphics.DrawString(dataGridView1.Rows[l].Cells[6].FormattedValue.ToString(), dataGridView1.Font = new Font("Book Antiqua", 7), Brushes.Black, new RectangleF(680, height, dataGridView1.Columns[0].Width, dataGridView1.Rows[0].Height));
                     }
                     else
                     {
