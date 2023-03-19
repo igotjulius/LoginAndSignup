@@ -16,12 +16,6 @@ namespace LoginAndSignup
         {
             InitializeComponent();
         }
-
-        private void booksToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            File b = new File();
-            b.ShowDialog();
-        }
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Transaction ts = new Transaction();
