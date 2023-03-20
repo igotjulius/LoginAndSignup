@@ -166,6 +166,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\register.png" />
+    <None Include="Resources\password.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\report.png" />
+    <None Include="Resources\transaction.png" />
+    <None Include="Resources\file1.png" />
     <None Include="Resources\book.gif" />
     <None Include="Resources\images %281%29.jpeg" />
   </ItemGroup>
