@@ -43,7 +43,7 @@ namespace LoginAndSignup
 
         private void button1_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("select * from BorrowersTable where Id='" + brID_tb.Text + "'", cn);
+            cmd = new SqlCommand("select * from BorrowersTable where Id ='" + brID_tb.Text + "'", cn);
             dr = cmd.ExecuteReader();
 
             if (dr.Read())
