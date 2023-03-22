@@ -27,13 +27,13 @@ namespace LoginAndSignup
 
         private void Books_Load(object sender, EventArgs e)
         {
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Downloads\LoginAndSignup_new\LoginAndSignup\Database1.mdf;Integrated Security=True");
+            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Demos\Library_System\Database1.mdf;Integrated Security=True");
             cn.Open();
         }
 
         private void loadDataGrid()
         {
-            cmd = new SqlCommand("Select * from BooksTable order by Id asc", cn);
+            cmd = new SqlCommand("Select * from BooksTable order by Id desc", cn);
             dr = cmd.ExecuteReader();
             dr.Close();
 
@@ -165,7 +165,7 @@ namespace LoginAndSignup
 
         private void loadDataGrid1()
         {
-            cmd = new SqlCommand("Select * from BorrowersTable order by Id asc", cn);
+            cmd = new SqlCommand("Select ID, Lastname, Firstname from BorrowersTable order by Lastname asc", cn);
             cmd.ExecuteNonQuery();
 
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
