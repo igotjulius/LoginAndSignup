@@ -65,6 +65,7 @@ namespace LoginAndSignup
             title_tb.Text = "";
             author_tb.Text = "";
             qty_tb.Text = "";
+            maxqtxtbox.Text = "";
         }
 
         private void search_tb_TextChanged(object sender, EventArgs e)
@@ -85,6 +86,7 @@ namespace LoginAndSignup
             title_tb.Text = dataGridView1.Rows[e.RowIndex].Cells["Title"].Value.ToString();
             author_tb.Text = dataGridView1.Rows[e.RowIndex].Cells["Author"].Value.ToString();
             qty_tb.Text = dataGridView1.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
+            maxqtxtbox.Text = dataGridView1.Rows[e.RowIndex].Cells["MaxQuantity"].Value.ToString();
         }
 
         private void clearall_btn_Click(object sender, EventArgs e)
@@ -119,24 +121,33 @@ namespace LoginAndSignup
                 string sqlFormattedDate = dt.ToString("yyyy-MM-dd HH:mm:ss.fff");
                 string b = "BORROWED";
 
-                temp--;
-                cmd = new SqlCommand("Update BooksTable SET quantity= '" + temp + "' where Id= '" + num + "'", cn);
-                dr = cmd.ExecuteReader();
-                dr.Close();
-                
-                MessageBox.Show("Book BORROWED Successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadDataGrid();
-                clearbooks();
+                if (temp > 0)
+                {
+                    temp--;
 
-                cmd = new SqlCommand("insert into ReportsTable values(@status,@date,@firstname,@lastname,@bookID,@Title)", cn);
-                cmd.Parameters.AddWithValue("status", b);
-                cmd.Parameters.AddWithValue("date", sqlFormattedDate);
-                cmd.Parameters.AddWithValue("firstname", fname_tb.Text);
-                cmd.Parameters.AddWithValue("lastname", lname_tb.Text);
-                cmd.Parameters.AddWithValue("bookId", num);
-                cmd.Parameters.AddWithValue("Title", title);
-                dr = cmd.ExecuteReader();
-                dr.Close();
+                    cmd = new SqlCommand("Update BooksTable SET quantity= '" + temp + "' where Id= '" + num + "'", cn);
+                    dr = cmd.ExecuteReader();
+                    dr.Close();
+                
+                    MessageBox.Show("Book BORROWED Successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadDataGrid();
+                    clearbooks();
+
+                    cmd = new SqlCommand("insert into ReportsTable values(@status,@date,@firstname,@lastname,@bookID,@Title)", cn);
+                    cmd.Parameters.AddWithValue("status", b);
+                    cmd.Parameters.AddWithValue("date", sqlFormattedDate);
+                    cmd.Parameters.AddWithValue("firstname", fname_tb.Text);
+                    cmd.Parameters.AddWithValue("lastname", lname_tb.Text);
+                    cmd.Parameters.AddWithValue("bookId", num);
+                    cmd.Parameters.AddWithValue("Title", title);
+                    dr = cmd.ExecuteReader();
+                    dr.Close();
+                }
+
+                else
+                {
+                    MessageBox.Show("Book currently unavailable", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
 
             }
@@ -151,32 +162,40 @@ namespace LoginAndSignup
         {
             if (brID_tb.Text != string.Empty && qty_tb.Text != string.Empty)
             {
-                int temp, num;
+                int temp, num, max;
                 temp = int.Parse(qty_tb.Text);
                 num = int.Parse(bookID_tb.Text);
+                max = int.Parse(maxqtxtbox.Text);
                 DateTime dt = DateTime.Now;
                 string sqlFormattedDate = dt.ToString("yyyy-MMMM-dd HH:mm:ss.fff");
                 string r = "RETURNED";
                 string title = title_tb.Text;
 
-                temp++;
-                cmd = new SqlCommand("Update BooksTable SET quantity= '" + temp + "' where Id= '" + num + "'", cn);
-                dr = cmd.ExecuteReader();
-                dr.Close();
-                
-                MessageBox.Show("Book RETURNED Successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                loadDataGrid();
-                clearbooks();
+                if (temp < max)
+                {
+                    temp++;
+                    cmd = new SqlCommand("Update BooksTable SET quantity= '" + temp + "' where Id= '" + num + "'", cn);
+                    dr = cmd.ExecuteReader();
+                    dr.Close();
 
-                cmd = new SqlCommand("insert into ReportsTable values(@status,@date,@firstname,@lastname,@bookID,@Title)", cn);
-                cmd.Parameters.AddWithValue("status", r);
-                cmd.Parameters.AddWithValue("date", sqlFormattedDate);
-                cmd.Parameters.AddWithValue("firstname", fname_tb.Text);
-                cmd.Parameters.AddWithValue("lastname", lname_tb.Text);
-                cmd.Parameters.AddWithValue("bookId", num);
-                cmd.Parameters.AddWithValue("Title", title);
-                dr = cmd.ExecuteReader();
-                dr.Close();
+                    MessageBox.Show("Book RETURNED Successfully!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    loadDataGrid();
+                    clearbooks();
+
+                    cmd = new SqlCommand("insert into ReportsTable values(@status,@date,@firstname,@lastname,@bookID,@Title)", cn);
+                    cmd.Parameters.AddWithValue("status", r);
+                    cmd.Parameters.AddWithValue("date", sqlFormattedDate);
+                    cmd.Parameters.AddWithValue("firstname", fname_tb.Text);
+                    cmd.Parameters.AddWithValue("lastname", lname_tb.Text);
+                    cmd.Parameters.AddWithValue("bookId", num);
+                    cmd.Parameters.AddWithValue("Title", title);
+                    dr = cmd.ExecuteReader();
+                    dr.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Book Unborrowed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {

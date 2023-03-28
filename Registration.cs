@@ -47,6 +47,11 @@ namespace LoginAndSignup
         {
             if (txtconfirmpassword.Text != string.Empty || txtpassword.Text != string.Empty || txtusername.Text != string.Empty)
             {
+                if(txtpassword.TextLength <= 8)
+                {
+                    MessageBox.Show("Password must have more than 8 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (txtpassword.Text == txtconfirmpassword.Text)
                 {
                     cmd = new SqlCommand("select * from LoginTable where username='" + txtusername.Text + "'", cn);
@@ -114,6 +119,11 @@ namespace LoginAndSignup
             {
                 txtconfirmpassword.UseSystemPasswordChar = true;
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

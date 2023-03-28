@@ -30,8 +30,10 @@
         {
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.lname_tb = new System.Windows.Forms.TextBox();
+            this.clearbr_btn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.fname_tb = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,7 +41,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.qty_tb = new System.Windows.Forms.TextBox();
+            this.maxqtxtbox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.clearbooks_btn = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.author_tb = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,11 +56,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.borrow_btn = new System.Windows.Forms.Button();
             this.return_btn = new System.Windows.Forms.Button();
-            this.clearbr_btn = new System.Windows.Forms.Button();
-            this.clearbooks_btn = new System.Windows.Forms.Button();
             this.clearall_btn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -89,6 +91,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Borrower";
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(73, 21);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Enter Borrower\'s ID";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(153, 154);
@@ -106,6 +117,16 @@
             this.lname_tb.ReadOnly = true;
             this.lname_tb.Size = new System.Drawing.Size(159, 20);
             this.lname_tb.TabIndex = 5;
+            // 
+            // clearbr_btn
+            // 
+            this.clearbr_btn.Location = new System.Drawing.Point(41, 154);
+            this.clearbr_btn.Name = "clearbr_btn";
+            this.clearbr_btn.Size = new System.Drawing.Size(66, 23);
+            this.clearbr_btn.TabIndex = 10;
+            this.clearbr_btn.Text = "Clear";
+            this.clearbr_btn.UseVisualStyleBackColor = true;
+            this.clearbr_btn.Click += new System.EventHandler(this.clearbr_btn_Click);
             // 
             // label4
             // 
@@ -152,6 +173,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.qty_tb);
+            this.groupBox2.Controls.Add(this.maxqtxtbox);
+            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.clearbooks_btn);
             this.groupBox2.Controls.Add(this.label8);
@@ -175,8 +198,26 @@
             this.qty_tb.Location = new System.Drawing.Point(83, 165);
             this.qty_tb.Name = "qty_tb";
             this.qty_tb.ReadOnly = true;
-            this.qty_tb.Size = new System.Drawing.Size(123, 20);
+            this.qty_tb.Size = new System.Drawing.Size(36, 20);
             this.qty_tb.TabIndex = 10;
+            // 
+            // maxqtxtbox
+            // 
+            this.maxqtxtbox.Location = new System.Drawing.Point(135, 165);
+            this.maxqtxtbox.Name = "maxqtxtbox";
+            this.maxqtxtbox.ReadOnly = true;
+            this.maxqtxtbox.Size = new System.Drawing.Size(36, 20);
+            this.maxqtxtbox.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(118, 162);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(19, 26);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "/";
             // 
             // label9
             // 
@@ -186,6 +227,16 @@
             this.label9.Size = new System.Drawing.Size(46, 13);
             this.label9.TabIndex = 9;
             this.label9.Text = "Quantity";
+            // 
+            // clearbooks_btn
+            // 
+            this.clearbooks_btn.Location = new System.Drawing.Point(98, 201);
+            this.clearbooks_btn.Name = "clearbooks_btn";
+            this.clearbooks_btn.Size = new System.Drawing.Size(63, 23);
+            this.clearbooks_btn.TabIndex = 11;
+            this.clearbooks_btn.Text = "Clear";
+            this.clearbooks_btn.UseVisualStyleBackColor = true;
+            this.clearbooks_btn.Click += new System.EventHandler(this.clearbooks_btn_Click);
             // 
             // label8
             // 
@@ -286,26 +337,6 @@
             this.return_btn.UseVisualStyleBackColor = true;
             this.return_btn.Click += new System.EventHandler(this.return_btn_Click);
             // 
-            // clearbr_btn
-            // 
-            this.clearbr_btn.Location = new System.Drawing.Point(41, 154);
-            this.clearbr_btn.Name = "clearbr_btn";
-            this.clearbr_btn.Size = new System.Drawing.Size(66, 23);
-            this.clearbr_btn.TabIndex = 10;
-            this.clearbr_btn.Text = "Clear";
-            this.clearbr_btn.UseVisualStyleBackColor = true;
-            this.clearbr_btn.Click += new System.EventHandler(this.clearbr_btn_Click);
-            // 
-            // clearbooks_btn
-            // 
-            this.clearbooks_btn.Location = new System.Drawing.Point(98, 201);
-            this.clearbooks_btn.Name = "clearbooks_btn";
-            this.clearbooks_btn.Size = new System.Drawing.Size(63, 23);
-            this.clearbooks_btn.TabIndex = 11;
-            this.clearbooks_btn.Text = "Clear";
-            this.clearbooks_btn.UseVisualStyleBackColor = true;
-            this.clearbooks_btn.Click += new System.EventHandler(this.clearbooks_btn_Click);
-            // 
             // clearall_btn
             // 
             this.clearall_btn.Location = new System.Drawing.Point(410, 195);
@@ -325,15 +356,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(73, 21);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 13);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Enter Borrower\'s ID";
             // 
             // Transaction
             // 
@@ -390,5 +412,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox maxqtxtbox;
+        private System.Windows.Forms.Label label11;
     }
 }

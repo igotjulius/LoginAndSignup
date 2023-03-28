@@ -33,7 +33,7 @@ namespace LoginAndSignup
 
         private void loadDataGrid()
         {
-            cmd = new SqlCommand("Select * from BooksTable order by Id desc", cn);
+            cmd = new SqlCommand("Select Id, Title, Author, Quantity from BooksTable order by Id desc", cn);
             dr = cmd.ExecuteReader();
             dr.Close();
 
@@ -48,7 +48,7 @@ namespace LoginAndSignup
 
         private void searchtxtbox_TextChanged(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("Select * from BooksTable where title like'%" + searchtxtbox.Text + "%'", cn);
+            cmd = new SqlCommand("Select Id, Title, Author, Quantity from BooksTable where title like'%" + searchtxtbox.Text + "%'", cn);
             cmd.ExecuteNonQuery();
             
 
@@ -76,10 +76,11 @@ namespace LoginAndSignup
                     int quan;
                     quan = int.Parse(quantitytxtbox.Text);
                     dr.Close();
-                    cmd = new SqlCommand("insert into BooksTable values(@title,@author,@quantity)", cn);
+                    cmd = new SqlCommand("insert into BooksTable values(@title,@author,@quantity,@maxquantity)", cn);
                     cmd.Parameters.AddWithValue("title", titletxtbox.Text);
                     cmd.Parameters.AddWithValue("author", authortxtbox.Text);
                     cmd.Parameters.AddWithValue("quantity", quan);
+                    cmd.Parameters.AddWithValue("maxquantity", quan);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Book is added in the Library.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     loadDataGrid();

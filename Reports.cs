@@ -65,7 +65,10 @@ namespace LoginAndSignup
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             string curdhead = "LIBRARY REPORTS";
-            e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 350, 50);
+            e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 14, FontStyle.Bold), Brushes.Black, 300, 50);
+
+            string admin = "Printed by: Admin";
+            e.Graphics.DrawString(admin, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 10, 80);
 
             string l1 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
             e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 100);
