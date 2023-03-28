@@ -68,7 +68,7 @@ namespace LoginAndSignup
             e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 14, FontStyle.Bold), Brushes.Black, 300, 50);
 
             string admin = "Printed by: Admin";
-            e.Graphics.DrawString(admin, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 10, 80);
+            e.Graphics.DrawString(admin, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 350, 1120);
 
             string l1 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
             e.Graphics.DrawString(l1, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 0, 100);
@@ -135,6 +135,8 @@ namespace LoginAndSignup
             }
             numberOfItemsPerPage = 0;
             numberOfItemsPrintedSoFar = 0;
+
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
