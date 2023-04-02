@@ -26,6 +26,7 @@ namespace LoginAndSignup
         {
             cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Demos\Library_System\Database1.mdf;Integrated Security=True");
             cn.Open();
+            loadDataGrid();
         }
         private void loadDataGrid()
         {

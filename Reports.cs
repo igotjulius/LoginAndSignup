@@ -49,7 +49,7 @@ namespace LoginAndSignup
         private void searchtxtbox_TextChanged(object sender, EventArgs e)
         {
             cn.Open();
-            cmd = new SqlCommand("Select * from ReportsTable where Date like'%" + searchtxtbox.Text + "%' OR Status like '%" + searchtxtbox.Text + "%' OR Firstname like '%" + searchtxtbox.Text + "%' OR Lastname like '%" + searchtxtbox.Text + "%' Or Title like '%" + searchtxtbox.Text + "%'", cn);
+            cmd = new SqlCommand("Select * from ReportsTable where Date like '%" + searchtxtbox.Text + "%' OR Status like '%" + searchtxtbox.Text + "%' OR Firstname like '%" + searchtxtbox.Text + "%' OR Lastname like '%" + searchtxtbox.Text + "%' Or Title like '%" + searchtxtbox.Text + "%'", cn);
             cmd.ExecuteNonQuery();
 
 

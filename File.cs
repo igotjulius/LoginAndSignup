@@ -29,6 +29,8 @@ namespace LoginAndSignup
         {
             cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Demos\Library_System\Database1.mdf;Integrated Security=True");
             cn.Open();
+            loadDataGrid();
+            loadDataGrid1();
         }
 
         private void loadDataGrid()
@@ -180,7 +182,7 @@ namespace LoginAndSignup
 
         private void searchtxtbox_TextChanged1(object sender, EventArgs e)
         {
-            cmd = new SqlCommand("Select * from BorrowersTable where Firstname like'%" + textBox2.Text + "%'", cn);
+            cmd = new SqlCommand("Select * from BorrowersTable where Lastname like'%" + textBox2.Text + "%' OR Firstname like '%" + textBox2.Text + "%'", cn);
             cmd.ExecuteNonQuery();
 
             SqlDataAdapter adap = new SqlDataAdapter(cmd);
@@ -286,6 +288,11 @@ namespace LoginAndSignup
         private void clearbtn_Click1(object sender, EventArgs e)
         {
             EmptyTextBox1();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
