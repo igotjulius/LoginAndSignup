@@ -22,14 +22,30 @@ namespace LoginAndSignup
         public Reports()
         {
             InitializeComponent();
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Demos\Library_System\Database1.mdf;Integrated Security=True");
+            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\AA122\Source\Repos\LoginAndSignup\Database1.mdf;Integrated Security=True");
             loadDataGrid();
         }
 
         private void Reports_Load(object sender, EventArgs e)
         {
-               
+            fillChart();
         }
+
+        private void fillChart()
+        {
+            DataSet ds = new DataSet();
+            cn.Open();
+            SqlDataAdapter adapt = new SqlDataAdapter("Select title, quantity from bookstable", cn);
+            adapt.Fill(ds);
+            chart1.DataSource = ds;
+            //set the member of the chart data source used to data bind to the X-values of the series  
+            chart1.Series["Books"].XValueMember = "Title";
+            //set the member columns of the chart data source used to data bind to the X-values of the series  
+            chart1.Series["Books"].YValueMembers = "Quantity";
+            chart1.Titles.Add("Library Books Graph");
+            cn.Close();
+        }
+
         private void loadDataGrid()
         {
             cn.Open();
