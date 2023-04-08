@@ -88,7 +88,7 @@ namespace LoginAndSignup
                 }
                 else
                 {
-                    MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter same passwords ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

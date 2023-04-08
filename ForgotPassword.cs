@@ -18,7 +18,6 @@ namespace LoginAndSignup
         SqlCommand cmd;
         SqlConnection cn;
         SqlDataReader dr;
-        String decrypted;
         string hash = "f0xle@rn";//Create a hash key
 
         public ForgotPassword()
@@ -67,7 +66,8 @@ namespace LoginAndSignup
             password_tb.Text = "";
         }
 
-        //----------------------------CHANGE PASSWORD----------------------------------------
+
+        //------------------------------CHANGE PASSWORD----------------------------------------
 
         private void changepass_btn_Click(object sender, EventArgs e)
         {
@@ -136,7 +136,7 @@ namespace LoginAndSignup
                 }
                 else
                 {
-                    MessageBox.Show("Please enter both password same ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please enter same passwords ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

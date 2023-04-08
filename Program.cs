@@ -16,7 +16,7 @@ namespace LoginAndSignup
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ForgotPassword());
+            Application.Run(new Splash());
         }
     }
 }
