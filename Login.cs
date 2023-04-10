@@ -25,7 +25,13 @@ namespace LoginAndSignup
         {
             InitializeComponent();
         }
+        public static string username;
 
+        public static string uname
+        {
+            get { return username; }
+            set { username = value; }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Demos\Library_System\Database1.mdf;Integrated Security=True");
@@ -59,6 +65,7 @@ namespace LoginAndSignup
                 if (dr.Read())
                 {
                     dr.Close();
+                    uname = txtusername.Text;
                     this.Hide();
                     Home home = new Home();
                     home.ShowDialog();

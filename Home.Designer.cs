@@ -42,6 +42,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.uname_txt = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -119,7 +123,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MingLiU-ExtB", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(236, 51);
+            this.label1.Location = new System.Drawing.Point(236, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(248, 40);
             this.label1.TabIndex = 1;
@@ -129,7 +133,7 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::LoginAndSignup.Properties.Resources.images__1_;
-            this.pictureBox8.Location = new System.Drawing.Point(158, 116);
+            this.pictureBox8.Location = new System.Drawing.Point(158, 119);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(116, 100);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,7 +143,7 @@
             // pictureBox7
             // 
             this.pictureBox7.Image = global::LoginAndSignup.Properties.Resources.images__1_;
-            this.pictureBox7.Location = new System.Drawing.Point(445, 210);
+            this.pictureBox7.Location = new System.Drawing.Point(445, 213);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(116, 100);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -149,7 +153,7 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::LoginAndSignup.Properties.Resources.images__1_;
-            this.pictureBox6.Location = new System.Drawing.Point(445, 116);
+            this.pictureBox6.Location = new System.Drawing.Point(445, 119);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(116, 100);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -159,7 +163,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::LoginAndSignup.Properties.Resources.images__1_;
-            this.pictureBox5.Location = new System.Drawing.Point(158, 210);
+            this.pictureBox5.Location = new System.Drawing.Point(158, 213);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(116, 100);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -169,7 +173,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::LoginAndSignup.Properties.Resources.images__1_;
-            this.pictureBox4.Location = new System.Drawing.Point(243, 210);
+            this.pictureBox4.Location = new System.Drawing.Point(243, 213);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(116, 100);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,7 +183,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::LoginAndSignup.Properties.Resources.images__1_;
-            this.pictureBox3.Location = new System.Drawing.Point(350, 210);
+            this.pictureBox3.Location = new System.Drawing.Point(350, 213);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(116, 100);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -189,7 +193,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::LoginAndSignup.Properties.Resources.images__1_;
-            this.pictureBox2.Location = new System.Drawing.Point(350, 116);
+            this.pictureBox2.Location = new System.Drawing.Point(350, 119);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(116, 100);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -199,12 +203,56 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LoginAndSignup.Properties.Resources.images__1_;
-            this.pictureBox1.Location = new System.Drawing.Point(243, 116);
+            this.pictureBox1.Location = new System.Drawing.Point(243, 119);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(116, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label2.Font = new System.Drawing.Font("Russo One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(591, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(21, 19);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "X";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Russo One", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(572, -1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(18, 19);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "_";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("MingLiU-ExtB", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(123, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Hello,";
+            // 
+            // uname_txt
+            // 
+            this.uname_txt.AutoSize = true;
+            this.uname_txt.Font = new System.Drawing.Font("MingLiU-ExtB", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uname_txt.Location = new System.Drawing.Point(176, 9);
+            this.uname_txt.Name = "uname_txt";
+            this.uname_txt.Size = new System.Drawing.Size(87, 13);
+            this.uname_txt.TabIndex = 13;
+            this.uname_txt.Text = "(username)";
             // 
             // Home
             // 
@@ -212,6 +260,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.ClientSize = new System.Drawing.Size(613, 362);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.uname_txt);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
@@ -222,11 +274,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -258,5 +312,9 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label uname_txt;
     }
 }

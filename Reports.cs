@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace LoginAndSignup
 {
+   
     public partial class Reports : Form
     {
         SqlCommand cmd;
@@ -22,7 +23,7 @@ namespace LoginAndSignup
         public Reports()
         {
             InitializeComponent();
-            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\AA122\Source\Repos\LoginAndSignup\Database1.mdf;Integrated Security=True");
+            cn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Demos\Library_System\Database1.mdf;Integrated Security=True");
             loadDataGrid();
         }
 
@@ -38,9 +39,7 @@ namespace LoginAndSignup
             SqlDataAdapter adapt = new SqlDataAdapter("Select title, quantity from bookstable", cn);
             adapt.Fill(ds);
             chart1.DataSource = ds;
-            //set the member of the chart data source used to data bind to the X-values of the series  
             chart1.Series["Books"].XValueMember = "Title";
-            //set the member columns of the chart data source used to data bind to the X-values of the series  
             chart1.Series["Books"].YValueMembers = "Quantity";
             chart1.Titles.Add("Library Books Graph");
             cn.Close();
@@ -80,10 +79,12 @@ namespace LoginAndSignup
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
+            
+
             string curdhead = "LIBRARY REPORTS";
             e.Graphics.DrawString(curdhead, new System.Drawing.Font("Book Antiqua", 14, FontStyle.Bold), Brushes.Black, 300, 50);
 
-            string admin = "Printed by: Admin";
+            string admin = "Printed by: " + Login.uname;
             e.Graphics.DrawString(admin, new System.Drawing.Font("Book Antiqua", 9, FontStyle.Bold), Brushes.Black, 350, 1120);
 
             string l1 = "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
@@ -171,6 +172,22 @@ namespace LoginAndSignup
             {
                 printDocument1.Print();
             }
+        }
+
+        private void load_btn_Click(object sender, EventArgs e)
+        {
+            cn.Open();
+            cmd = new SqlCommand("Select * from ReportsTable where Date between '" + fromDate.Text + "' AND '" + toDate.Text + "'", cn);
+            dr = cmd.ExecuteReader();
+            dr.Close();
+
+            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+            DataTable tab = new DataTable();
+
+            adap.Fill(tab);
+            dataGridView1.DataSource = tab;
+
+            cn.Close();
         }
     }
 }

@@ -48,5 +48,20 @@ namespace LoginAndSignup
                 return;
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            uname_txt.Text = Login.uname;
+        }
     }
 }
